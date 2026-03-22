@@ -208,6 +208,9 @@ def simular(data: SimulacionInput):
             0,
             False
         )
+@app.get("/")
+def home():
+    return {"mensaje": "Backend funcionando OK 🚀"}
 
     # --- inversión ---
     inversion = simular_inversion(
