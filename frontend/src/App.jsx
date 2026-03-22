@@ -4,6 +4,8 @@ function App() {
   const [resultado, setResultado] = useState(null);
 
   const simular = async () => {
+    console.log("CLICK FUNCIONA"); // 👈 esto nos confirma
+
     try {
       const response = await fetch(
         "https://redesigned-robot-q7g95947vrr5crxx-8000.app.github.dev/simular",
@@ -38,6 +40,7 @@ function App() {
 
       const data = await response.json();
       console.log("RESULTADO:", data);
+
       setResultado(data);
 
     } catch (error) {
@@ -57,7 +60,7 @@ function App() {
         <div>
           <h2>Resultado</h2>
           <pre>
-            {JSON.stringify(resultado.resultado.slice(0, 5), null, 2)}
+            {JSON.stringify(resultado.resultado?.slice(0, 5), null, 2)}
           </pre>
         </div>
       )}
